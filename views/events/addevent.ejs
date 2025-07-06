@@ -1,0 +1,73 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <!-- Hero Section: Full Width and Fixed Spacing -->
+<div style="background-color: #122a45; color: white; width: 100%;">
+  <div class="container-fluid px-4 py-5">
+    <div class="row align-items-center justify-content-between">
+      
+      <!-- Left Text Content -->
+      <div class="col-md-8">
+        <h1 class="fw-bold display-6">Host a New Event!</h1>
+        <p class="fs-5 mt-3">
+            🎉 Fill in the form below to publish your event and reach your audience.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="max-width: 900px; margin: auto; background-color: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);">
+    <!-- Form -->
+    <form method="post" action="/societies/<%= data._id %>/newevent">
+
+      <!-- Event Name -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-weight: 500;" for="name">Event Name</label><br>
+        <input name="event[name]" type="text" required placeholder="Enter event name" 
+          style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 8px;">
+      </div>
+
+      <!-- Description -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-weight: 500;" for="description">Description</label><br>
+        <textarea name="event[description]" required placeholder="What's your event about?" 
+          style="width: 100%; padding: 12px; height: 150px; border: 1px solid #ddd; border-radius: 8px; margin-top: 8px;"></textarea>
+      </div>
+
+      <!-- Added By -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-weight: 500;" for="addedBy">Society Name</label><br>
+        <input name="event[addedBy]" type="text" required placeholder="Enter society name"
+          style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 8px;">
+      </div>
+
+      <!-- Date -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-weight: 500;" for="date">Date of the Event</label><br>
+        <input name="event[date]" type="date" required
+          style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 8px;">
+      </div>
+
+      <!-- Location -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-weight: 500;" for="location">Venue</label><br>
+        <input name="event[location]" type="text" required placeholder="Enter event location"
+          style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 8px;">
+      </div>
+
+      <!-- Banner -->
+      <div style="margin-bottom: 30px;">
+        <label style="font-weight: 500;" for="banner">Event Banner (Image URL)</label><br>
+        <input name="event[banner]" type="text" placeholder="Paste banner image link (optional)"
+          style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 8px;">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit"
+        style="padding: 12px 30px; background-color: #FFC107; color: white; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;">
+        Submit
+      </button>
+
+    </form>
+  </div>
+</body>

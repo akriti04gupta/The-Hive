@@ -1,0 +1,122 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+
+  <!-- Hero Section -->
+  <div style="background-color: #122a45; color: white; width: 100%;">
+    <div class="container-fluid px-4 py-5">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-md-8">
+          <h1 class="fw-bold display-6">Campus Events</h1>
+          <p class="fs-5 mt-3">
+            Discover upcoming events, workshops, competitions, and social gatherings happening on campus.
+            Find something that interests you and RSVP today!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search + Filter -->
+  <div class="container-fluid px-4 py-4">
+    <div class="row justify-content-between align-items-center g-3">
+      <!-- Search Bar -->
+      <div class="col-md-8">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0">
+            <i class="fa fa-search text-muted"></i>
+          </span>
+          <input type="text" class="form-control border-start-0" placeholder="Search events...">
+        </div>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="col-md-4">
+        <select class="form-select">
+          <option selected>All Categories</option>
+          <option value="Tech">Tech</option>
+          <option value="Non-Tech">Non-Tech</option>
+          <option value="Cell">Cell</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Events Grid -->
+  <div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% for (let event of allEvents) { 
+           const now = new Date();
+           const start = new Date(event.date);
+           const end = new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000); // 1 week = ongoing
+
+           let label = "", bg = "", color = "white";
+
+           if (now < start) {
+             label = "Upcoming";
+             bg = "#0d6efd";
+           } else if (now >= start && now <= end) {
+             label = "Ongoing";
+             bg = "#198754";
+           } else {
+             label = "Expired";
+             bg = "#dc3545";
+           }
+      %>
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0" style="border-radius: 20px; overflow: hidden;">
+
+            
+            <div style="position: relative;">
+              <a href="/events/<%= event._id %>">
+                <img src="<%= event.banner %>" 
+                     alt="Event Banner" 
+                     class="card-img-top" 
+                     style="height: 200px; width: 100%; object-fit: cover;">
+              </a>
+              
+              <span style="position: absolute; top: 10px; right: 10px; background-color: <%= bg %>; color: <%= color %>; font-weight: 600; padding: 4px 12px; border-radius: 15px; font-size: 13px;">
+                <%= label %>
+              </span>
+            </div>
+
+            
+            <div class="card-body" style="padding: 18px;">
+              <h5 class="card-title fw-bold" style="margin-bottom: 10px;">
+                <a href="/events/<%= event._id %>" style="text-decoration: none; color: #000;">
+                  <%= event.name %>
+                </a>
+              </h5>
+              <p class="card-text text-muted" style="font-size: 0.95rem;">
+                <%= event.description.length > 100 ? event.description.substring(0, 100) + "..." : event.description %>
+              </p>
+            </div>
+
+            
+            <div class="card-footer bg-white border-0" style="padding: 0 18px 18px;">
+              <p style="margin: 5px 0; font-size: 0.9rem;">
+                <i class="fa-solid fa-user me-2" style="color: #6c757d;"></i>
+                <strong>Added By:</strong> <%= event.addedBy %>
+              </p>
+              <p style="margin: 5px 0; font-size: 0.9rem;">
+                <i class="fa-solid fa-calendar-days me-2" style="color: #6c757d;"></i>
+                <strong>Date:</strong>
+                <%= new Date(event.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }) %>
+              </p>
+              <p style="margin: 5px 0; font-size: 0.9rem;">
+                <i class="fa-solid fa-clock me-2" style="color: #6c757d;"></i>
+                <strong>Time:</strong>
+                <%= new Date(event.date).toLocaleTimeString("en-US", { hour: 'numeric', minute: '2-digit' }) %>
+              </p>
+              <p style="margin: 5px 0; font-size: 0.9rem;">
+                <i class="fa-solid fa-location-dot me-2" style="color: #6c757d;"></i>
+                <strong>Location:</strong> <%= event.location %>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+</body>

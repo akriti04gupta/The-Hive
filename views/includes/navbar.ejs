@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="width: 62px; height: 48px;background-color: #FFC107;clip-path: polygon(50% 0%, 93% 25%, 93% 75%,50% 100%, 7% 75%, 7% 25%);display: flex;align-items: center;justify-content: center;font-weight: bold;font-size: 24px;color: #ffffff;font-family: Arial, sans-serif; padding: 10px;">
+              <a class="nav-link" href="/"><b>H</b></a>
+            </div>
+            <div class="navbar-nav">
+              <a class="nav-link" href="/" style="color: #FFC107 !important;"><b>The Hive</b></a>
+              <a class="nav-link ms-3" href="/societies"><b>Societies</b></a>
+              <a class="nav-link" href="/events"><b>Events</b></a>
+            </div>
+              <div class="navbar-nav ms-auto">
+                <div class="navbar-nav ms-auto">
+              <% if(!currUser)
+                { %>
+                  
+
+
+
+<a href="/login"
+   class="nav-link px-3 py-1 rounded border border-success d-inline-flex align-items-center ms-3"
+   style="color: #198754 !important; font-weight: 600; font-size: 15.5px;">
+  <i class="fa-solid fa-right-to-bracket me-2" style="color: #198754 !important; font-size: 16px;"></i>
+  Login
+</a>
+
+
+<a href="/signup" 
+   class="nav-link px-3 py-1 rounded border d-inline-flex align-items-center ms-2"
+   style="color: #FFC107 !important; border: 2px solid #FFC107 !important; font-weight: 600; font-size: 15.5px;">
+  <i class="fa-solid fa-user-plus me-2" style="color: #FFC107 !important; font-size: 16px;"></i>
+  Sign in
+</a>
+
+
+
+
+
+               <% } %>
+              <% if(currUser)
+               { %>
+                <a href="/logout"
+   class="nav-link px-3 py-1 rounded border border-success d-inline-flex align-items-center ms-3"
+   style="color: #198754 !important; font-weight: 600; font-size: 15.5px;">
+  <i class="fa-solid fa-right-from-bracket me-2" style="color: #198754 !important; font-size: 16px;"></i>     
+  Logout
+</a>
+
+              <% } %>
+              </div>
+              </div>
+      </div>
+</nav>

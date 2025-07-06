@@ -1,0 +1,182 @@
+body{
+    font-family: "Plus Jakarta Sans", serif !important;
+    font-optical-sizing: auto !important;
+    font-style: normal !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: black !important;
+}
+/*------------------------------------- footer ------------------------------------------------------*/
+
+/* Footer Styling */
+footer {
+    background-color: #122a45;
+    padding: 10px;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    max-width: 1200px;
+    min-height: 200px;
+    margin: 30px;
+    padding: 10px;
+}
+
+.footer-left 
+{
+    width: 70%;
+}
+.footer-right
+{
+    width: 20%;
+    padding-left: 40px;
+}
+
+.footer-left h2{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.footer-right h2{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.footer-left p,.footer-right p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.footer-left button {
+    background-color: #23d160;
+    border: none;
+    font-size: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.footer-right a {
+    color: #23aaff;
+    text-decoration: none;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #D3D3D3;;
+    font-size: 22px;
+    margin-right: 15px;
+    transition: 0.3s;
+    
+}
+
+.social-icons a:hover {
+    color: #23aaff;
+}
+
+/*----------------------index page----------------------------*/
+
+/* Heading */
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Societies List */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Society Card */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 700px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.card img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Card Title */
+.card-title a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.card-title a:hover {
+    color: #0056b3;
+}
+
+/* Card Text */
+.card-text {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Category Label */
+.card-text small {
+    font-size: 15px;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+/*----------------------add page----------------------------*/
+

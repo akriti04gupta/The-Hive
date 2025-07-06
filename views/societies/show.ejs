@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+
+  <div style="max-width: 900px; margin: auto; background-color: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+
+    <!-- Society Name -->
+    <h2 style="font-size: 2.2rem; font-weight: bold; color: #212529; margin-bottom: 10px;"><%= data.name %></h2>
+
+    <!-- Owner Info -->
+    <p style="color: #555; font-style: italic; margin-bottom: 20px;">
+      Owned By: <strong><%= data.owner.username %></strong>
+    </p>
+
+    <!-- Society Logo -->
+    <div style="text-align: center; margin-bottom: 30px;">
+      <img src="<%= data.logo.url %>" alt="Society Logo" style="max-width: 250px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </div>
+
+    <!-- Details List -->
+    <ul style="list-style: none; padding: 0; font-size: 1.1rem; color: #333; line-height: 1.7;">
+      <li><strong>Description:</strong> <%= data.description %></li>
+      <li><strong>Category:</strong> <%= data.category %></li>
+      <li><strong>Chairperson:</strong> <%= data.chairperson %></li>
+    </ul>
+
+    <!-- Buttons for Owner Only -->
+    <% if (currUser && currUser._id.equals(data.owner._id)) { %>
+      <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px;">
+
+        <form action="/societies/<%= data._id %>/edit">
+          <button type="submit" style="
+            background-color: #FFC107;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #000;
+          ">Edit Society Details</button>
+        </form>
+
+        <form action="/societies/<%= data._id %>?_method=DELETE" method="POST">
+          <button type="submit" style="
+            background-color: #f44336;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+          ">Remove Society</button>
+        </form>
+
+        <form action="/societies/<%= data._id %>/newevent">
+          <button type="submit" style="
+            background-color: #17a2b8;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+          ">Add Event</button>
+        </form>
+
+      </div>
+    <% } %>
+
+  </div>
+</body>

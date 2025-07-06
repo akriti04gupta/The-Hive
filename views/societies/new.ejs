@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <!-- Hero Section: Full Width and Fixed Spacing -->
+<div style="background-color: #122a45; color: white; width: 100%;">
+  <div class="container-fluid px-4 py-5">
+    <div class="row align-items-center justify-content-between">
+      
+      <!-- Left Text Content -->
+      <div class="col-md-8">
+        <h1 class="fw-bold display-6">Create a New Society</h1>
+        <p class="fs-5 mt-3">
+          Start your own community on campus! <br> Fill out the form below to create a new society.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+    <br>
+    
+
+  <div style="max-width: 900px; margin: auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <form method="post" action="/societies" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 24px;">
+      
+      <!-- Row 1: Name -->
+      <div>
+        <label for="name" style="font-weight: 600; display: block; margin-bottom: 6px;">Society Name</label>
+        <input name="society[name]" placeholder="Enter society name" type="text" required
+          style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+      </div>
+
+      <!-- Row 2: Category -->
+      <div>
+        <label for="category" style="font-weight: 600; display: block; margin-bottom: 6px;">Category</label>
+        <select name="society[category]" required
+          style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+          <option disabled selected value="">Select a category</option>
+          <option value="tech">Tech</option>
+          <option value="non-tech">Non-Tech</option>
+          <option value="cell">Cell</option>
+        </select>
+      </div>
+
+      <!-- Row 3: Description -->
+      <div>
+        <label for="description" style="font-weight: 600; display: block; margin-bottom: 6px;">Description</label>
+        <textarea name="society[description]" placeholder="Tell us about your society and its goals" rows="4" required
+          style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;"></textarea>
+      </div>
+
+      <!-- Row 5: Logo Upload -->
+      <div>
+        <label for="logo" style="font-weight: 600; display: block; margin-bottom: 6px;">Upload Logo</label>
+        <input name="logo" type="file" style="font-size: 1rem;">
+      </div>
+
+      <!-- Row 6: Chairperson -->
+      <div>
+        <label for="chairperson" style="font-weight: 600; display: block; margin-bottom: 6px;">Chairperson</label>
+        <input name="society[chairperson]" placeholder="Name of the chairperson" type="text" required
+          style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+      </div>
+
+      <!-- Submit Button -->
+      <div style="text-align: center; margin-top: 10px;">
+        <button type="submit"
+          style="padding: 14px 40px; background-color: #FFC107; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; color: #000; cursor: pointer;">
+          Add Society
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</body>

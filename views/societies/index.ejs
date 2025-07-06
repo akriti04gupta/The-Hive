@@ -1,0 +1,98 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+<!-- Hero Section: Full Width and Fixed Spacing -->
+<div style="background-color: #122a45; color: white; width: 100%;">
+  <div class="container-fluid px-4 py-5">
+    <div class="row align-items-center justify-content-between">
+      
+      <!-- Left Text Content -->
+      <div class="col-md-8">
+        <h1 class="fw-bold display-6">Discover Societies</h1>
+        <p class="fs-5 mt-3">
+          Find and join clubs and societies that match your interests.
+          Connect with like-minded students and enhance your college experience.
+        </p>
+      </div>
+
+      <!-- Right Create Button -->
+      <div class="col-md-4 text-md-end text-center mt-4 mt-md-0">
+        <a href="/societies/new"
+           class="btn"
+           style="background-color: #FFC107; font-weight: 600; font-size: 18px; padding: 16px 28px; border-radius: 10px; color: black;">
+          <i class="fa-solid fa-plus me-2"></i> Add Society
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search + Filter Form -->
+<form method="GET" action="/societies" class="container-fluid px-4 py-4">
+  <div class="row justify-content-between align-items-center g-3">
+    
+    <!-- Search Bar -->
+    <div class="col-md-8">
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="fa fa-search text-muted"></i>
+        </span>
+        <input 
+          type="text" 
+          name="search" 
+          class="form-control border-start-0" 
+          placeholder="Search societies..." 
+          value="<%= typeof search !== 'undefined' ? search : '' %>"
+        >
+      </div>
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="col-md-4">
+      <select class="form-select" name="category">
+        <option value="">All Categories</option>
+        <option value="Tech" <%= category === 'Tech' ? 'selected' : '' %>>Tech</option>
+        <option value="Non-Tech" <%= category === 'Non-Tech' ? 'selected' : '' %>>Non-Tech</option>
+        <option value="Cell" <%= category === 'Cell' ? 'selected' : '' %>>Cell</option>
+      </select>
+    </div>
+  </div>
+</form>
+
+
+
+    <div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% for (let society of allSocieties) { %>
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0" style="border-radius: 20px;">
+          <a href="/societies/<%= society._id %>">
+            <img src="<%= society.logo.url %>" 
+                 class="card-img-top" 
+                 alt="<%= society.name %>" 
+                 style="height: 200px; object-fit: cover; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+          </a>
+          <div class="card-body" style="padding: 20px;">
+            <span class="badge bg-dark mb-2" style="font-size: 0.8rem; padding: 5px 10px; border-radius: 12px;">
+              <%= society.category %>
+            </span>
+            <h5 class="card-title fw-bold" style="margin-top: 10px; font-weight: 700;">
+              <a href="/societies/<%= society._id %>" 
+                 style="text-decoration: none; color: #000;">
+                <%= society.name %>
+              </a>
+            </h5>
+            <p class="card-text text-muted" style="font-size: 0.95rem; margin-top: 10px;">
+              <%= society.description.length > 100 ? society.description.substring(0, 100) + "..." : society.description %>
+            </p>
+          </div>
+          <div class="card-footer bg-white border-0" style="padding: 0 20px 20px;">
+            <small class="text-muted">Category: <%= society.category %></small>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>
+
+ 
+</body>

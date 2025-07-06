@@ -1,0 +1,86 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <!-- Hero Section: Full Width and Fixed Spacing -->
+<div style="background-color: #122a45; color: white; width: 100%;">
+  <div class="container-fluid px-4 py-5">
+    <div class="row align-items-center justify-content-between">
+      
+      <!-- Left Text Content -->
+      <div class="col-md-8">
+        <h1 class="fw-bold display-6">Edit your Society Details</h1>
+        <p class="fs-5 mt-3">
+          Edit the details below to reflect your latest achievements and updates. <br>Use the form below to update your society information.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  <div style="max-width: 850px; margin: auto; background-color: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+
+    <!-- Form -->
+    <form method="POST" action="/societies/<%= data._id %>?_method=put" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 20px;">
+
+      <!-- Society Name -->
+      <div>
+        <label for="name" style="font-weight: 600;">Society Name</label><br>
+        <input type="text" name="society[name]" value="<%= data.name %>" required style="
+          width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;
+        ">
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label for="description" style="font-weight: 600;">Description</label><br>
+        <textarea name="society[description]" rows="4" required style="
+          width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;
+        "><%= data.description %></textarea>
+      </div>
+
+      <!-- Category -->
+      <div>
+        <label style="font-weight: 600;">Category</label><br>
+        <label style="margin-right: 15px;">
+          <input type="radio" name="society[category]" value="tech" <%= data.category === 'tech' ? 'checked' : '' %>> Tech
+        </label>
+        <label style="margin-right: 15px;">
+          <input type="radio" name="society[category]" value="non-tech" <%= data.category === 'non-tech' ? 'checked' : '' %>> Non-Tech
+        </label>
+        <label>
+          <input type="radio" name="society[category]" value="cell" <%= data.category === 'cell' ? 'checked' : '' %>> Cell
+        </label>
+      </div>
+
+      <!-- Logo Upload -->
+      <div>
+        <label for="logo" style="font-weight: 600;">Society Logo</label><br>
+        <input type="file" name="logo" style="
+          font-size: 1rem; padding: 10px 0;
+        ">
+      </div>
+
+      <!-- Chairperson -->
+      <div>
+        <label for="chairperson" style="font-weight: 600;">Chairperson</label><br>
+        <input type="text" name="society[chairperson]" value="<%= data.chairperson %>" required style="
+          width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;
+        ">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" style="
+        margin-top: 20px;
+        background-color: #FFC107;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #000;
+        border-radius: 8px;
+        cursor: pointer;
+        align-self: flex-start;
+      ">Submit</button>
+
+    </form>
+  </div>
+</body>
