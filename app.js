@@ -20,7 +20,7 @@ const LocalStrategy=require("passport-local").Strategy;
 const Students = require('./models/students.js');
 const multer  = require('multer')
 
-const dbUrl= "mongodb+srv://guptaakii2604:2xCWachcfn5GoXjy@cluster0.peznl7y.mongodb.net/";
+const dbUrl= process.env.ATLAS_DB;
 
 console.log("Mongo DB URL from env:", dbUrl);
 
