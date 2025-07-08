@@ -22,6 +22,8 @@ const multer  = require('multer')
 
 const dbUrl= process.env.ATLAS_DB;
 
+console.log("Mongo DB URL from env:", dbUrl);
+
 const store= MongoStore.create({
     mongoUrl:dbUrl,
     crypto:{
