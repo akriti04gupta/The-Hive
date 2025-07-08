@@ -1,4 +1,4 @@
-# 🐝 The Hive
+# 🐝 The Hive https://the-hive.up.railway.app/
 
 **The Hive** is a full-featured, dynamic college community platform that brings all campus societies and their events under one roof. It allows students to explore, join, manage, and participate in society activities through a clean, intuitive interface.
 
